@@ -2,7 +2,6 @@ package com.otus.architecture.and.design.patterns;
 
 import com.otus.architecture.and.design.patterns.exceptions.NotZeroException;
 import com.otus.architecture.and.design.patterns.exceptions.UnknownException;
-import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.math3.util.Precision;
 
 import java.util.function.Predicate;
