@@ -13,7 +13,10 @@ public class QuadraticEquation {
      * Пусть дано квадратное уравнение ax^2 + bx + c = 0.
      * Тогда дискриминант — это просто число D = b2 − 4ac.
      */
-    public double[] solve(double a, double b, double c) throws NotZeroException {
+    public double[] solve(String aStr, String bStr, String cStr) throws NotZeroException {
+        double a = Double.parseDouble(aStr);
+        double b = Double.parseDouble(bStr);
+        double c = Double.parseDouble(cStr);
 
         Predicate<Double> isNumberZero = (dob) -> Precision.equals(dob,0,  0.001d);
 

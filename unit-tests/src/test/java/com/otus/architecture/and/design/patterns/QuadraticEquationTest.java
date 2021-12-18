@@ -16,9 +16,9 @@ class QuadraticEquationTest {
     void solve$1() {
 
         // Arrange
-        double a = 1;
-        double b = 0;
-        double c = 1;
+        String a = "1";
+        String b = "0";
+        String c = "1";
 
         // Act
         double[] result = quadraticEquation.solve(a, b, c);
@@ -32,9 +32,9 @@ class QuadraticEquationTest {
     void solve$2() {
 
         // Arrange
-        double a = 1;
-        double b = 0;
-        double c = -1;
+        String a = "1";
+        String b = "0";
+        String c = "-1";
 
         // Act
         double[] result = quadraticEquation.solve(a, b, c);
@@ -50,9 +50,9 @@ class QuadraticEquationTest {
     void solve$3() {
 
         // Arrange
-        double a = 1;
-        double b = 2;
-        double c = 1;
+        String a = "1";
+        String b = "2";
+        String c = "1";
 
         // Act
         double[] result = quadraticEquation.solve(a, b, c);
@@ -67,9 +67,9 @@ class QuadraticEquationTest {
     void solve$4() {
 
         // Arrange discriminant = Math.pow(0.01, 2) - 4 * 0.0002 * 1
-        double a = 0;
-        double b = 2;
-        double c = 1;
+        String a = "0";
+        String b = "2";
+        String c = "1";
 
         // Act
         // Assert
@@ -81,9 +81,9 @@ class QuadraticEquationTest {
     void solve$5() {
 
         // Arrange Math.pow(2.191, 2) - 4 * 1 * 1.2
-        double a = 1;
-        double b = 2.191;
-        double c = 1.2;
+        String a = "1";
+        String b = "2.191";
+        String c = "1.2";
 
         // Act
         double[] result = quadraticEquation.solve(a, b, c);
@@ -93,26 +93,19 @@ class QuadraticEquationTest {
         assertEquals(-1.0845341439002723, result[0] , "Ожидаемый результат x1 = x2 = -1.0845341439002723");
     }
 
-    /**
-     * Посмотреть какие еще значения могут принимать числа типа double,
-     * кроме числовых и написать тест с их использованием на все коэффициенты. solve должен выбрасывать исключение.
-     */
-//    @Test
-//    @DisplayName("Дискриминант был отличный от нуля, но меньше заданного эпсилон")
-//    void solve$5() {
-//
-//        // Arrange Math.pow(2.191, 2) - 4 * 1 * 1.2
-//        double a = 1;
-//        double b = 2.191;
-//        double c = 1.2;
-//
-//        // Act
-//        double[] result = quadraticEquation.solve(a, b, c);
-//
-//        // Assert
-//        assertEquals(1, result.length, "Ожидался 1 корень");
-//        assertEquals(-1.0845341439002723, result[0] , "Ожидаемый результат x1 = x2 = -1.0845341439002723");
-//    }
+    @Test
+    @DisplayName("Посмотреть какие еще значения могут принимать числа типа double")
+    void solve$6() {
+
+        // Arrange Math.pow(2.191, 2) - 4 * 1 * 1.2
+        String a = "йцу";
+        String b = "!!!миртчртьч";
+        String c = "ии34и5ю3и45";
+
+        // Act
+        // Assert
+        assertThrows(NumberFormatException.class, ()-> quadraticEquation.solve(a, b, c), "Ожидалось исключение NumberFormatException");
+    }
 
 
 }
