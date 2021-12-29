@@ -1,5 +1,6 @@
 package com.otus.architecture.and.design.patterns;
 
+import com.otus.architecture.and.design.patterns.exceptions.IncorrectValueException;
 import com.otus.architecture.and.design.patterns.exceptions.NotZeroException;
 import com.otus.architecture.and.design.patterns.exceptions.UnknownException;
 import org.apache.commons.math3.util.Precision;
@@ -13,13 +14,20 @@ public class QuadraticEquation {
      * Пусть дано квадратное уравнение ax^2 + bx + c = 0.
      * Тогда дискриминант — это просто число D = b2 − 4ac.
      */
-    public double[] solve(String aStr, String bStr, String cStr) throws NotZeroException {
-        double a = Double.parseDouble(aStr);
-        double b = Double.parseDouble(bStr);
-        double c = Double.parseDouble(cStr);
+    public double[] solve(double a, double b, double c) {
 
         Predicate<Double> isNumberZero = (dob) -> Precision.equals(dob, 0, 0.001d);
         BiPredicate<Double, Double> greaterThan = (first, second) -> (first - second) > 0.001d;
+        Predicate<Double> isIncorrectValue = (doubleVal) -> Double.isInfinite(doubleVal) || Double.isNaN(doubleVal);
+
+
+        if (isIncorrectValue.test(a)) {
+            throw new IncorrectValueException("Передано не корретное значение для коэфицента a=" + a);
+        } else if (isIncorrectValue.test(b)) {
+            throw new IncorrectValueException("Передано не корретное значение для коэфицента b=" + b);
+        } else if (isIncorrectValue.test(c)) {
+            throw new IncorrectValueException("Передано не корретное значение для коэфицента c=" + c);
+        }
 
         if (isNumberZero.test(a)) {
             throw new NotZeroException("Коэффицент а не может быть равен 0");

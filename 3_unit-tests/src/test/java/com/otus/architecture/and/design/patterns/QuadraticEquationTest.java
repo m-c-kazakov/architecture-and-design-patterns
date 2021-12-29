@@ -1,8 +1,11 @@
 package com.otus.architecture.and.design.patterns;
 
+import com.otus.architecture.and.design.patterns.exceptions.IncorrectValueException;
 import com.otus.architecture.and.design.patterns.exceptions.NotZeroException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -16,9 +19,9 @@ class QuadraticEquationTest {
     void solve$1() {
 
         // Arrange
-        String a = "1";
-        String b = "0";
-        String c = "1";
+        double a = 1;
+        double b = 0;
+        double c = 1;
 
         // Act
         double[] result = quadraticEquation.solve(a, b, c);
@@ -32,9 +35,9 @@ class QuadraticEquationTest {
     void solve$2() {
 
         // Arrange
-        String a = "1";
-        String b = "0";
-        String c = "-1";
+        double a = 1;
+        double b = 0;
+        double c = -1;
 
         // Act
         double[] result = quadraticEquation.solve(a, b, c);
@@ -50,9 +53,9 @@ class QuadraticEquationTest {
     void solve$3() {
 
         // Arrange
-        String a = "1";
-        String b = "2";
-        String c = "1";
+        double a = 1;
+        double b = 2;
+        double c = 1;
 
         // Act
         double[] result = quadraticEquation.solve(a, b, c);
@@ -67,9 +70,9 @@ class QuadraticEquationTest {
     void solve$4() {
 
         // Arrange discriminant = Math.pow(0.01, 2) - 4 * 0.0002 * 1
-        String a = "0";
-        String b = "2";
-        String c = "1";
+        double a = 0;
+        double b = 2;
+        double c = 1;
 
         // Act
         // Assert
@@ -81,9 +84,9 @@ class QuadraticEquationTest {
     void solve$5() {
 
         // Arrange Math.pow(2.191, 2) - 4 * 1 * 1.2
-        String a = "1";
-        String b = "2.191";
-        String c = "1.2";
+        double a = 1;
+        double b = 2.191;
+        double c = 1.2;
 
         // Act
         double[] result = quadraticEquation.solve(a, b, c);
@@ -93,18 +96,15 @@ class QuadraticEquationTest {
         assertEquals(-1.0845341439002723, result[0] , "Ожидаемый результат x1 = x2 = -1.0845341439002723");
     }
 
-    @Test
     @DisplayName("Посмотреть какие еще значения могут принимать числа типа double")
-    void solve$6() {
+    @ParameterizedTest
+    @ValueSource(doubles = {Double.NaN, Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY})
+    void solve$6(double d) {
 
-        // Arrange Math.pow(2.191, 2) - 4 * 1 * 1.2
-        String a = "йцу";
-        String b = "!!!миртчртьч";
-        String c = "ии34и5ю3и45";
-
+        // Arrange
         // Act
         // Assert
-        assertThrows(NumberFormatException.class, ()-> quadraticEquation.solve(a, b, c), "Ожидалось исключение NumberFormatException");
+        assertThrows(IncorrectValueException.class, ()-> quadraticEquation.solve(d, d, d), "Ожидалось исключение IncorrectValueExceptionvz");
     }
 
 
