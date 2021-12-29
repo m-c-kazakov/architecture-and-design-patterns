@@ -7,10 +7,24 @@
     <groupId>com.otus</groupId>
     <artifactId>architecture-and-design-patterns</artifactId>
     <version>DEV-SNAPSHOT</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>16</source>
+                    <target>16</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
     <packaging>pom</packaging>
 
     <modules>
         <module>unit-tests</module>
+        <module>SOLID_first_War_of_Tanks</module>
+        <module>servlet</module>
     </modules>
 
 
