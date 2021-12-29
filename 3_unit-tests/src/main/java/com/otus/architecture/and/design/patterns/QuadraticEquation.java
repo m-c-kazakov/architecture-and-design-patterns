@@ -4,6 +4,7 @@ import com.otus.architecture.and.design.patterns.exceptions.NotZeroException;
 import com.otus.architecture.and.design.patterns.exceptions.UnknownException;
 import org.apache.commons.math3.util.Precision;
 
+import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 
 public class QuadraticEquation {
@@ -17,7 +18,8 @@ public class QuadraticEquation {
         double b = Double.parseDouble(bStr);
         double c = Double.parseDouble(cStr);
 
-        Predicate<Double> isNumberZero = (dob) -> Precision.equals(dob,0,  0.001d);
+        Predicate<Double> isNumberZero = (dob) -> Precision.equals(dob, 0, 0.001d);
+        BiPredicate<Double, Double> greaterThan = (first, second) -> (first - second) > 0.001d;
 
         if (isNumberZero.test(a)) {
             throw new NotZeroException("Коэффицент а не может быть равен 0");
@@ -28,9 +30,9 @@ public class QuadraticEquation {
             double[] result = new double[1];
             result[0] = (-b + Math.sqrt(discriminant)) / 2 * a;
             return result;
-        } else if (discriminant < 0) {
+        } else if (greaterThan.test(0d, discriminant)) {
             return new double[0];
-        } else if (discriminant > 0) {
+        } else if (greaterThan.test(discriminant, 0d)) {
             double[] result = new double[2];
             result[0] = (-b + Math.sqrt(discriminant)) / 2 * a;
             result[1] = (-b - Math.sqrt(discriminant)) / 2 * a;
