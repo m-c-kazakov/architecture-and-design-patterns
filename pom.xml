@@ -22,9 +22,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>unit-tests</module>
-        <module>SOLID_first_War_of_Tanks</module>
-        <module>servlet</module>
+        <module>3_unit-tests</module>
     </modules>
 
 
