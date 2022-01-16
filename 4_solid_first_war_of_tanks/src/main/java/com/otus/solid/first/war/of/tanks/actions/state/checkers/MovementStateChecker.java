@@ -8,8 +8,4 @@ import java.util.List;
  * Определяет набор правил, по которым будет проверятся возможность совершения движения
  */
 public interface MovementStateChecker extends Checker<MovementState2d>{
-
-    List<LocationStateChecker> getLocationStateCheckers();
-
-    List<SpeedStateChecker> getSpeedStateChecker();
 }

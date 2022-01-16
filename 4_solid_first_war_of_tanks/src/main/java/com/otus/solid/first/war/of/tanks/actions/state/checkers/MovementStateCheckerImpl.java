@@ -1,40 +1,41 @@
 package com.otus.solid.first.war.of.tanks.actions.state.checkers;
 
-import com.otus.solid.first.war.of.tanks.actions.borders.BorderState2D;
+import com.otus.solid.first.war.of.tanks.actions.state.borders.BorderState2D;
 import com.otus.solid.first.war.of.tanks.actions.state.location.LocationState2d;
 import com.otus.solid.first.war.of.tanks.actions.state.movement.MovementState2d;
 import com.otus.solid.first.war.of.tanks.actions.state.speed.SpeedState2D;
-import com.otus.solid.first.war.of.tanks.exceptions.ImpossibleActionException;
+import com.otus.solid.first.war.of.tanks.exceptionHandling.exceptions.ImpossibleActionException;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.util.List;
+import java.util.Optional;
+
+import static java.util.Objects.nonNull;
 
 @Getter
 @AllArgsConstructor
 public class MovementStateCheckerImpl implements MovementStateChecker{
 
     private final BorderState2D borderState2D;
-    List<LocationStateChecker> locationStateCheckers;
-    List<SpeedStateChecker> speedStateChecker;
 
     @Override
     public boolean isNeedToCheck(MovementState2d state) {
-        return state.getCheckersName().stream().anyMatch("MovementStateChecker"::equals);
+        return nonNull(state.getLocationState2d()) && nonNull(state.getSpeedState());
     }
 
     @Override
     public void check(MovementState2d state) {
-        locationStateCheckers.stream().filter(stateChecker -> stateChecker.isNeedToCheck(state.getLocationState2d())).forEach(stateChecker -> stateChecker.check(state.getLocationState2d()));
-        speedStateChecker.stream().filter(stateChecker -> stateChecker.isNeedToCheck(state.getSpeedState())).forEach(stateChecker -> stateChecker.check(state.getSpeedState()));
+        Optional.ofNullable(state.getLocationState2d()).ifPresent(LocationState2d::check);
+        Optional.ofNullable(state.getSpeedState()).ifPresent(SpeedState2D::check);
 
         LocationState2d locationState = state.getLocationState2d();
         SpeedState2D speedState = state.getSpeedState();
         Long x = locationState.getX() + speedState.getX();
         Long y = locationState.getY() + speedState.getY();
 
-        if (!borderState2D.isLocatedIdBorders(x)|| !borderState2D.isLocatedIdBorders(y)) {
-            throw new ImpossibleActionException("Не возможно изменить положение в пространстве");
+        if (!borderState2D.isLocatedIdBorders(x) && !borderState2D.isLocatedInBound(y)) {
+            throw new ImpossibleActionException(this.getClass().getCanonicalName(),  "Не возможно изменить положение в пространстве");
         }
     }
 }
