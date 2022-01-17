@@ -1,4 +1,4 @@
-package com.otus.solid.first.war.of.tanks.actions.turn;
+package com.otus.solid.first.war.of.tanks.exceptionHandling.turn;
 
 import com.otus.solid.first.war.of.tanks.actions.State;
 import com.otus.solid.first.war.of.tanks.actions.changers.TurnChanger;

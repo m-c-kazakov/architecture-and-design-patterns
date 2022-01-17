@@ -14,7 +14,7 @@ import java.util.Map;
  * Отвечает, за совершение действия и вызов обработчика ошибок, которые могут возникнуть в рамках действий
  */
 public interface GameObject {
-    void setActions(Map<String, Action<Changer<State>>> actions);
+    void setActions(Map<String, Action> actions);
     void setChangers(Map<String, Changer<State>> changers);
     void setBaseExceptionsHandler(BaseExceptionsHandler handlers);
 

@@ -5,7 +5,6 @@ import com.otus.solid.first.war.of.tanks.exceptionHandling.excrptionHandlers.Exc
 import lombok.Setter;
 
 import java.util.List;
-import java.util.Map;
 
 @Setter
 public class BaseExceptionsHandlerImpl implements BaseExceptionsHandler {
@@ -13,12 +12,7 @@ public class BaseExceptionsHandlerImpl implements BaseExceptionsHandler {
     List<ExceptionHandler> exceptionHandler;
 
     @Override
-    public void setExceptionHandler(Map<String, ExceptionHandler> exceptionHandlers) {
-
-    }
-
-    @Override
     public void processing(ExceptionContext exceptionContext) {
-
+        exceptionHandler.stream().filter(eH -> eH.isNeedToProcess(exceptionContext)).forEach(eH -> eH.processing(exceptionContext));
     }
 }

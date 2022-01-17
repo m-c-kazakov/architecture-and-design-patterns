@@ -8,7 +8,6 @@ import com.otus.solid.first.war.of.tanks.exceptionHandling.exceptions.Impossible
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-import java.util.List;
 import java.util.Optional;
 
 import static java.util.Objects.nonNull;

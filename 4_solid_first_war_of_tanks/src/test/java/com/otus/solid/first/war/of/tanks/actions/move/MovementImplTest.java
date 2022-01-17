@@ -1,10 +1,12 @@
 package com.otus.solid.first.war.of.tanks.actions.move;
 
 
-import com.otus.solid.first.war.of.tanks.actions.State;
-import com.otus.solid.first.war.of.tanks.actions.state.borders.BorderState2D;
 import com.otus.solid.first.war.of.tanks.actions.changers.MoveChanger;
-import com.otus.solid.first.war.of.tanks.actions.state.checkers.*;
+import com.otus.solid.first.war.of.tanks.actions.state.borders.BorderState2D;
+import com.otus.solid.first.war.of.tanks.actions.state.checkers.LocationStateCheckerImpl;
+import com.otus.solid.first.war.of.tanks.actions.state.checkers.MovementStateChecker;
+import com.otus.solid.first.war.of.tanks.actions.state.checkers.MovementStateCheckerImpl;
+import com.otus.solid.first.war.of.tanks.actions.state.checkers.SpeedStateCheckerImpl;
 import com.otus.solid.first.war.of.tanks.actions.state.location.LocationState2d;
 import com.otus.solid.first.war.of.tanks.actions.state.movement.MovementState2d;
 import com.otus.solid.first.war.of.tanks.actions.state.speed.SpeedState2D;
@@ -15,7 +17,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 

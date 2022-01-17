@@ -1,11 +1,10 @@
 package com.otus.solid.first.war.of.tanks.actions.state.borders;
 
+import com.otus.solid.first.war.of.tanks.actions.CheckerOwner;
 import com.otus.solid.first.war.of.tanks.actions.State;
 import com.otus.solid.first.war.of.tanks.actions.state.checkers.BorderStateChecker;
-import com.otus.solid.first.war.of.tanks.actions.state.checkers.Checker;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NonNull;
 import lombok.Setter;
 
 import java.util.List;
@@ -16,7 +15,7 @@ import java.util.List;
 @Getter
 @Setter
 @AllArgsConstructor
-public class BorderState2D implements State<BorderStateChecker> {
+public class BorderState2D implements State, CheckerOwner<BorderStateChecker> {
 
     List<BorderStateChecker> checkers;
     Long rightBorder;

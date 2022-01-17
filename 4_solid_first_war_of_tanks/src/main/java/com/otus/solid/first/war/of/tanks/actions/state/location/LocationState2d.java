@@ -1,5 +1,6 @@
 package com.otus.solid.first.war.of.tanks.actions.state.location;
 
+import com.otus.solid.first.war.of.tanks.actions.CheckerOwner;
 import com.otus.solid.first.war.of.tanks.actions.State;
 import com.otus.solid.first.war.of.tanks.actions.state.checkers.LocationStateChecker;
 import lombok.Builder;
@@ -11,7 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
-public class LocationState2d implements State<LocationStateChecker> {
+public class LocationState2d implements State, CheckerOwner<LocationStateChecker> {
     private List<LocationStateChecker> checkers;
     private Long x;
     private Long y;

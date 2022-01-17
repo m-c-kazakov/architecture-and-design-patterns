@@ -2,13 +2,15 @@ package com.otus.solid.first.war.of.tanks.actions.state.checkers;
 
 import com.otus.solid.first.war.of.tanks.actions.state.location.LocationState2d;
 import com.otus.solid.first.war.of.tanks.exceptionHandling.exceptions.IncorrectDataException;
+import lombok.AllArgsConstructor;
 
 import java.util.Objects;
 
 import static java.util.Objects.isNull;
 
+@AllArgsConstructor
 public class LocationStateCheckerImpl implements LocationStateChecker{
-    // todo джобавить состояние командам
+
     @Override
     public boolean isNeedToCheck(LocationState2d state) {
         return Objects.nonNull(state);

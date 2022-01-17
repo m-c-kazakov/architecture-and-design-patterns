@@ -1,5 +1,6 @@
 package com.otus.solid.first.war.of.tanks.actions.state.movement;
 
+import com.otus.solid.first.war.of.tanks.actions.CheckerOwner;
 import com.otus.solid.first.war.of.tanks.actions.State;
 import com.otus.solid.first.war.of.tanks.actions.state.checkers.MovementStateChecker;
 import com.otus.solid.first.war.of.tanks.actions.state.location.LocationState2d;
@@ -12,7 +13,7 @@ import java.util.List;
 
 @Getter
 @AllArgsConstructor
-public class MovementState2d implements State<MovementStateChecker> {
+public class MovementState2d implements State, CheckerOwner<MovementStateChecker> {
 
     @Setter
     private List<MovementStateChecker> checkers;
