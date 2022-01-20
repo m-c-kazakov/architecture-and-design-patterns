@@ -6,7 +6,7 @@ import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * Команда, которая должна вывести информацию об ошибке в лог
+ * Команда, которая записывает информацию о выброшенном исключении в лог.
  */
 @Slf4j
 @Setter
@@ -16,6 +16,6 @@ public class ExceptionLogging implements ExceptionCommand{
     private ExceptionContext exceptionContext;
 
     public void execute() {
-        log.error("Возникло исключение при попытке выполнить действей игрового объекта: "+exceptionContext.toString());
+        log.error("Возникло исключение при попытке выполнить действей игрового объекта: "+exceptionContext.getException().getMessage());
     }
 }

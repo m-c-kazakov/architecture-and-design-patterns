@@ -12,15 +12,13 @@ import com.otus.solid.first.war.of.tanks.actions.state.location.LocationState2d;
 import com.otus.solid.first.war.of.tanks.actions.state.movement.MovementState2d;
 import com.otus.solid.first.war.of.tanks.actions.state.speed.SpeedState2D;
 import com.otus.solid.first.war.of.tanks.exceptionHandling.BaseExceptionsHandlerImpl;
-import com.otus.solid.first.war.of.tanks.exceptionHandling.excrptionHandlers.CommandExceptionHandler;
+import com.otus.solid.first.war.of.tanks.exceptionHandling.excrptionHandlers.ImpossibleActionExceptionHandler;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class GameObjectImplTest {
 
@@ -40,7 +38,7 @@ class GameObjectImplTest {
         gameObject.setActions(Map.of(movementName, movement));
         gameObject.setActionsQueue(new LinkedList<>());
         BaseExceptionsHandlerImpl baseExceptionsHandler = new BaseExceptionsHandlerImpl();
-        baseExceptionsHandler.setExceptionHandler(List.of(new CommandExceptionHandler()));
+        baseExceptionsHandler.setExceptionHandler(List.of(new ImpossibleActionExceptionHandler()));
         gameObject.setBaseExceptionsHandler(baseExceptionsHandler);
 
         Changer moveChanger = new MoveChanger();
