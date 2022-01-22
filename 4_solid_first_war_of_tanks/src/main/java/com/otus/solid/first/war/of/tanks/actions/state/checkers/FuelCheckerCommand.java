@@ -12,7 +12,7 @@ public class FuelCheckerCommand  implements Checker<MovementStateWithFuel2d>{
     @Override
     public void check(MovementStateWithFuel2d state) {
         SpeedState2D speedState = state.getSpeedState();
-        long resultFuel = state.getFuel() - speedState.getX() - speedState.getY();
+        long resultFuel = state.getFuel() - Math.abs(speedState.getX()) - Math.abs(speedState.getY());
         if (resultFuel < 0) {
             throw new CommandException("FuelCheckerCommand", "Недостаточно топлива для выполнения джижения");
         }
