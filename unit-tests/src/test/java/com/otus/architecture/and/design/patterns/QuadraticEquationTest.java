@@ -10,9 +10,10 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+
 class QuadraticEquationTest {
 
-    private QuadraticEquation quadraticEquation = new QuadraticEquation();
+    private final QuadraticEquation quadraticEquation = new QuadraticEquation();
 
     @Test
     @DisplayName("x^2+1 = 0: корней нет (возвращается пустой массив)")

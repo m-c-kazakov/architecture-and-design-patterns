@@ -1,7 +1,9 @@
 package com.otus.solid.first.war.of.tanks.actions;
 
+import java.util.List;
+
 public interface State {
 
-    String getCheckerName();
+    List<String> getCheckersName();
 
 }
