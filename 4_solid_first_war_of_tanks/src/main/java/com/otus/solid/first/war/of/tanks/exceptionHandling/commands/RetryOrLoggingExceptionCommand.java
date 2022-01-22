@@ -12,7 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Setter
 @Builder
-public class RetryOrThrowExceptionCommand implements ExceptionCommand {
+public class RetryOrLoggingExceptionCommand implements ExceptionCommand {
 
     private ExceptionContext exceptionContext;
 
@@ -21,6 +21,7 @@ public class RetryOrThrowExceptionCommand implements ExceptionCommand {
         for (int i = 0; i < 2; i++) {
             try {
                 exceptionContext.getCommand().execute();
+                return;
             } catch (Exception ignore) {
             }
         }
