@@ -8,10 +8,6 @@ import java.util.Objects;
 import static java.util.Objects.isNull;
 
 public class SpeedStateCheckerImpl implements SpeedStateChecker{
-    @Override
-    public boolean isNeedToCheck(SpeedState2D state) {
-        return Objects.nonNull(state);
-    }
 
     @Override
     public void check(SpeedState2D state) {

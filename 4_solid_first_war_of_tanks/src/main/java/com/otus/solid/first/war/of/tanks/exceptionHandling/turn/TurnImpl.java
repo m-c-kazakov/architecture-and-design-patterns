@@ -18,7 +18,7 @@ public class TurnImpl implements Turn {
 
     @Override
     public void execute() {
-        checkers.stream().filter(stateChecker -> stateChecker.isNeedToCheck(state)).forEach(stateChecker -> stateChecker.check(state));
+        checkers.forEach(stateChecker -> stateChecker.check(state));
         changer.execute(state);
     }
 }

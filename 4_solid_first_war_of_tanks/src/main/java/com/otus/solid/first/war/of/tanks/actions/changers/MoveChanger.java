@@ -4,6 +4,9 @@ import com.otus.solid.first.war.of.tanks.actions.state.location.LocationState2d;
 import com.otus.solid.first.war.of.tanks.actions.state.movement.MovementState2d;
 import com.otus.solid.first.war.of.tanks.actions.state.speed.SpeedState2D;
 
+/**
+ * MoveCommand
+ */
 public class MoveChanger implements Changer<MovementState2d>{
 
     @Override

@@ -34,6 +34,6 @@ public class BorderState2D implements State, CheckerOwner<BorderStateChecker> {
 
     @Override
     public void check() {
-        checkers.stream().filter(stateChecker -> stateChecker.isNeedToCheck(this)).forEach(stateChecker -> stateChecker.check(this));
+        checkers.forEach(stateChecker -> stateChecker.check(this));
     }
 }

@@ -19,6 +19,6 @@ public class LocationState2d implements State, CheckerOwner<LocationStateChecker
 
     @Override
     public void check() {
-        checkers.stream().filter(stateChecker -> stateChecker.isNeedToCheck(this)).forEach(stateChecker -> stateChecker.check(this));
+        checkers.forEach(stateChecker -> stateChecker.check(this));
     }
 }
