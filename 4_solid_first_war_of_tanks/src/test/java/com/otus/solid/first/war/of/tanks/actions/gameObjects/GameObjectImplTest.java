@@ -1,7 +1,7 @@
 package com.otus.solid.first.war.of.tanks.actions.gameObjects;
 
 import com.otus.solid.first.war.of.tanks.actions.changers.Changer;
-import com.otus.solid.first.war.of.tanks.actions.changers.MoveChanger;
+import com.otus.solid.first.war.of.tanks.actions.changers.MicroMoveChanger;
 import com.otus.solid.first.war.of.tanks.actions.move.MovementImpl;
 import com.otus.solid.first.war.of.tanks.actions.state.borders.BorderState2D;
 import com.otus.solid.first.war.of.tanks.actions.state.checkers.LocationStateCheckerImpl;
@@ -41,7 +41,7 @@ class GameObjectImplTest {
         baseExceptionsHandler.setExceptionHandler(List.of(new ImpossibleActionExceptionHandler()));
         gameObject.setBaseExceptionsHandler(baseExceptionsHandler);
 
-        Changer moveChanger = new MoveChanger();
+        Changer moveChanger = new MicroMoveChanger();
         gameObject.setChangers(Map.of(changerName, moveChanger));
 
         gameObject.setActionsQueue(movementName, changerName);
