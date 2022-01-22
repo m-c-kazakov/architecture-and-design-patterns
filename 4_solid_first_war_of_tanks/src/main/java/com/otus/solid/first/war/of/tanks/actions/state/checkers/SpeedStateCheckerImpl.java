@@ -3,8 +3,6 @@ package com.otus.solid.first.war.of.tanks.actions.state.checkers;
 import com.otus.solid.first.war.of.tanks.actions.state.speed.SpeedState2D;
 import com.otus.solid.first.war.of.tanks.exceptionHandling.exceptions.IncorrectDataException;
 
-import java.util.Objects;
-
 import static java.util.Objects.isNull;
 
 public class SpeedStateCheckerImpl implements SpeedStateChecker{

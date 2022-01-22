@@ -10,8 +10,6 @@ import lombok.Getter;
 
 import java.util.Optional;
 
-import static java.util.Objects.nonNull;
-
 @Getter
 @AllArgsConstructor
 public class MovementStateCheckerImpl implements MovementStateChecker{

@@ -4,8 +4,6 @@ import com.otus.solid.first.war.of.tanks.actions.state.location.LocationState2d;
 import com.otus.solid.first.war.of.tanks.exceptionHandling.exceptions.IncorrectDataException;
 import lombok.AllArgsConstructor;
 
-import java.util.Objects;
-
 import static java.util.Objects.isNull;
 
 @AllArgsConstructor
