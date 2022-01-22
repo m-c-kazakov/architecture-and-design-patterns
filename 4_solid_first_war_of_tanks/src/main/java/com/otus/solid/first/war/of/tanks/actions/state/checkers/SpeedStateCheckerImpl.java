@@ -8,7 +8,7 @@ import static java.util.Objects.isNull;
 public class SpeedStateCheckerImpl implements SpeedStateChecker{
 
     @Override
-    public void check(SpeedState2D state) {
+    public void execute(SpeedState2D state) {
         if (isNull(state.getX()) || isNull(state.getY())) {
             throw new IncorrectDataException(this.getClass().getCanonicalName(), "SpeedState содержит не корректнче данные");
         }

@@ -1,8 +1,8 @@
 package com.otus.solid.first.war.of.tanks.actions.gameObjects;
 
 import com.otus.solid.first.war.of.tanks.actions.Action;
+import com.otus.solid.first.war.of.tanks.actions.Command;
 import com.otus.solid.first.war.of.tanks.actions.State;
-import com.otus.solid.first.war.of.tanks.actions.changers.Changer;
 import com.otus.solid.first.war.of.tanks.exceptionHandling.BaseExceptionsHandler;
 
 import java.util.Map;
@@ -15,7 +15,7 @@ import java.util.Map;
  */
 public interface GameObject {
     void setActions(Map<String, Action> actions);
-    void setChangers(Map<String, Changer<State>> changers);
+    void setChangers(Map<String, Command<State>> changers);
     void setBaseExceptionsHandler(BaseExceptionsHandler handlers);
 
     void setActionsQueue(String actionName, String changerName);

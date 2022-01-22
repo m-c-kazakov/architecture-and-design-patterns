@@ -10,7 +10,7 @@ import static java.util.Objects.isNull;
 public class LocationStateCheckerImpl implements LocationStateChecker{
 
     @Override
-    public void check(LocationState2d s) {
+    public void execute(LocationState2d s) {
         if (isNull(s.getX()) || isNull(s.getY())) {
             throw new IncorrectDataException(this.getClass().getCanonicalName(), "LocationState2d содержит не корректнче данные");
         }

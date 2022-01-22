@@ -1,5 +1,6 @@
 package com.otus.solid.first.war.of.tanks.actions.changers;
 
+import com.otus.solid.first.war.of.tanks.actions.Command;
 import com.otus.solid.first.war.of.tanks.actions.move.MovementImpl;
 import com.otus.solid.first.war.of.tanks.actions.state.checkers.FuelCheckerCommand;
 import com.otus.solid.first.war.of.tanks.actions.state.location.LocationState2d;
@@ -21,10 +22,10 @@ class MacroMoveCommandTest {
     @Test
     void execute$Success() {
 
-        List<Consumer<MovementState2d>> chainOfCommand = new ArrayList<>();
-        chainOfCommand.add((state2d) -> new FuelCheckerCommand().check((MovementStateWithFuel2d) state2d));
-        chainOfCommand.add((state2d -> new MicroMoveChanger().execute(state2d)));
-        chainOfCommand.add((state2d -> new FuelBurnChangerCommand().execute((MovementStateWithFuel2d) state2d)));
+        List<Command<MovementState2d>> chainOfCommand = new ArrayList<>();
+        chainOfCommand.add((Command) new FuelCheckerCommand());
+        chainOfCommand.add((new MicroMoveChanger()));
+        chainOfCommand.add((Command) (new FuelBurnChangerCommand()));
 
         MacroMoveCommand macroMoveCommand = new MacroMoveCommand(chainOfCommand);
 
@@ -45,10 +46,10 @@ class MacroMoveCommandTest {
     @Test
     void execute$Exception() {
 
-        List<Consumer<MovementState2d>> chainOfCommand = new ArrayList<>();
-        chainOfCommand.add((state2d) -> new FuelCheckerCommand().check((MovementStateWithFuel2d) state2d));
-        chainOfCommand.add((state2d -> new MicroMoveChanger().execute(state2d)));
-        chainOfCommand.add((state2d -> new FuelBurnChangerCommand().execute((MovementStateWithFuel2d) state2d)));
+        List<Command<MovementState2d>> chainOfCommand = new ArrayList<>();
+        chainOfCommand.add((Command) new FuelCheckerCommand());
+        chainOfCommand.add((new MicroMoveChanger()));
+        chainOfCommand.add((Command) (new FuelBurnChangerCommand()));
 
         MacroMoveCommand macroMoveCommand = new MacroMoveCommand(chainOfCommand);
 

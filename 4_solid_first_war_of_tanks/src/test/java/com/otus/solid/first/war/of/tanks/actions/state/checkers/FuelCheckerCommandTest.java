@@ -18,6 +18,6 @@ class FuelCheckerCommandTest {
         MovementStateWithFuel2d state = new MovementStateWithFuel2d(List.of(), null, new SpeedState2D(List.of(), 2L, 2L), 3L);
         FuelCheckerCommand fuelCheckerCommand = new FuelCheckerCommand();
 
-        assertThrows(CommandException.class, () -> fuelCheckerCommand.check(state));
+        assertThrows(CommandException.class, () -> fuelCheckerCommand.execute(state));
     }
 }

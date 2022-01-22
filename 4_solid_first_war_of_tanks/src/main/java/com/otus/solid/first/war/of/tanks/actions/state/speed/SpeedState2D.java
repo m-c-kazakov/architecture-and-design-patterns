@@ -19,6 +19,6 @@ public class SpeedState2D implements State, CheckerOwner<SpeedStateChecker> {
 
     @Override
     public void check() {
-        checkers.forEach(stateChecker -> stateChecker.check(this));
+        checkers.forEach(stateChecker -> stateChecker.execute(this));
     }
 }

@@ -1,10 +1,10 @@
 package com.otus.solid.first.war.of.tanks.actions.changers;
 
+import com.otus.solid.first.war.of.tanks.actions.Command;
 import com.otus.solid.first.war.of.tanks.actions.state.movement.MovementState2d;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
-import java.util.function.Consumer;
 
 /**
  * Макрокоманда
@@ -13,12 +13,12 @@ import java.util.function.Consumer;
 @RequiredArgsConstructor
 public class MacroMoveCommand implements MoveChanger {
 
-    private final List<Consumer<MovementState2d>> chainOfCommand;
+    private final List<Command<MovementState2d>> chainOfCommand;
 
     @Override
     public void execute(MovementState2d state) {
 
-        chainOfCommand.forEach(consumer -> consumer.accept(state));
+        chainOfCommand.forEach(command -> command.execute(state));
 
     }
 }

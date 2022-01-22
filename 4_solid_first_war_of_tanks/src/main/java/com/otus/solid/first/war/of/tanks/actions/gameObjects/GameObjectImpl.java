@@ -2,8 +2,8 @@ package com.otus.solid.first.war.of.tanks.actions.gameObjects;
 
 import com.otus.solid.first.war.of.tanks.actions.Action;
 import com.otus.solid.first.war.of.tanks.actions.ChangeOwner;
+import com.otus.solid.first.war.of.tanks.actions.Command;
 import com.otus.solid.first.war.of.tanks.actions.State;
-import com.otus.solid.first.war.of.tanks.actions.changers.Changer;
 import com.otus.solid.first.war.of.tanks.exceptionHandling.BaseExceptionsHandler;
 import com.otus.solid.first.war.of.tanks.exceptionHandling.context.ExceptionContext;
 import lombok.Setter;
@@ -17,7 +17,7 @@ import static java.util.Optional.ofNullable;
 public class GameObjectImpl implements GameObject{
 
     private Map<String, Action> actions;
-    private Map<String, Changer<State>> changers;
+    private Map<String, Command<State>> changers;
     private BaseExceptionsHandler baseExceptionsHandler;
 
     private Queue<Action> actionsQueue;

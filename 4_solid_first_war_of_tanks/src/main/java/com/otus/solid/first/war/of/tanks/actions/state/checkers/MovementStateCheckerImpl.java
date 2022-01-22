@@ -17,7 +17,7 @@ public class MovementStateCheckerImpl implements MovementStateChecker{
     private final BorderState2D borderState2D;
 
     @Override
-    public void check(MovementState2d state) {
+    public void execute(MovementState2d state) {
         Optional.ofNullable(state.getLocationState2d()).ifPresent(LocationState2d::check);
         Optional.ofNullable(state.getSpeedState()).ifPresent(SpeedState2D::check);
 

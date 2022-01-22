@@ -1,12 +1,13 @@
 package com.otus.solid.first.war.of.tanks.actions.changers;
 
+import com.otus.solid.first.war.of.tanks.actions.Command;
 import com.otus.solid.first.war.of.tanks.actions.state.movement.MovementStateWithFuel2d;
 import com.otus.solid.first.war.of.tanks.actions.state.speed.SpeedState2D;
 
 /**
  * BurnFuelCommand уменьшает количество топлива на скорость расхода топлива.
  */
-public class FuelBurnChangerCommand implements Changer<MovementStateWithFuel2d> {
+public class FuelBurnChangerCommand implements Command<MovementStateWithFuel2d> {
 
     @Override
     public void execute(MovementStateWithFuel2d state) {

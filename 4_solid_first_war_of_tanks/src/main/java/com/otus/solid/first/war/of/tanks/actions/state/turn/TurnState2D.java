@@ -19,6 +19,6 @@ public class TurnState2D implements State, CheckerOwner<TurnStateChecker> {
 
     @Override
     public void check() {
-        checkers.forEach(stateChecker -> stateChecker.check(this));
+        checkers.forEach(stateChecker -> stateChecker.execute(this));
     }
 }
