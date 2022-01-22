@@ -4,14 +4,16 @@ import com.otus.solid.first.war.of.tanks.actions.state.checkers.MovementStateChe
 import com.otus.solid.first.war.of.tanks.actions.state.location.LocationState2d;
 import com.otus.solid.first.war.of.tanks.actions.state.speed.SpeedState2D;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
 
 @Getter
+@Setter
 public class MovementStateWithFuel2d extends MovementState2d {
 
-    private final Long fuel;
+    private Long fuel;
 
     public MovementStateWithFuel2d(List<MovementStateChecker> checkers, LocationState2d locationState2d, SpeedState2D speedState, Long fuel) {
         super(checkers, locationState2d, speedState);
