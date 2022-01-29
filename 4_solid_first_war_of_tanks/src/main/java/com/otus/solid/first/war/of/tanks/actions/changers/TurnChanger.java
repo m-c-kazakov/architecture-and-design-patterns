@@ -1,4 +1,4 @@
-package com.otus.solid.first.war.of.tanks.actions.state.changers;
+package com.otus.solid.first.war.of.tanks.actions.changers;
 
 import com.otus.solid.first.war.of.tanks.actions.state.turn.TurnState2D;
 
