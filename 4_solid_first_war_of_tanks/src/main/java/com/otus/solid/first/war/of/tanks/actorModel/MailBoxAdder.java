@@ -12,7 +12,7 @@ public class MailBoxAdder implements Action {
     private final Action action;
 
     // todo task Добавить реализацию после проверки задачи на IoC
-    private IoC ioC;
+    private final IoC ioC;
 
     @Override
     public void execute() {

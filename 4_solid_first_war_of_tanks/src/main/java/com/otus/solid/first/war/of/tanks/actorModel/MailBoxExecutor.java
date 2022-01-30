@@ -1,6 +1,8 @@
 package com.otus.solid.first.war.of.tanks.actorModel;
 
 import com.otus.solid.first.war.of.tanks.actions.Action;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Map;
@@ -10,6 +12,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 @Slf4j
 public class MailBoxExecutor implements Action {
     // todo task Добавить реализацию после проверки задачи на IoC
+    @Setter
     private IoC ioC;
 
 
@@ -23,7 +26,6 @@ public class MailBoxExecutor implements Action {
     @Override
     public void execute() {
         final ConcurrentLinkedQueue<Action> actionQueue = ioC.resolve(Map.of("dependencyName", "MailBox"));
-
         while (((AtomicBoolean) ioC.resolve(Map.of("dependencyName", "MailBoxIsWorking"))).get()) {
             try {
                 if (actionQueue.size() != 0) {

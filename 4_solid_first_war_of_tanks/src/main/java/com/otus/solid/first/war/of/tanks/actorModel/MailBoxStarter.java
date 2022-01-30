@@ -1,12 +1,14 @@
 package com.otus.solid.first.war.of.tanks.actorModel;
 
 import com.otus.solid.first.war.of.tanks.actions.Action;
+import lombok.RequiredArgsConstructor;
 
 import java.util.Map;
 
+@RequiredArgsConstructor
 public class MailBoxStarter implements Action {
     // todo task Добавить реализацию после проверки задачи на IoC
-    private IoC ioC;
+    private final IoC ioC;
 
     /**
      * Написать команду, которая стартует код, написанный в пункте 1 в отдельном потоке.
