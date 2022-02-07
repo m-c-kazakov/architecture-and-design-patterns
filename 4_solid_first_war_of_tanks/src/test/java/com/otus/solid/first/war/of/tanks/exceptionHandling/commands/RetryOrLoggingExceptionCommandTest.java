@@ -7,11 +7,10 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class RetryOrThrowExceptionCommandTest {
+class RetryOrLoggingExceptionCommandTest {
 
     @Mock
     Action action;
@@ -22,8 +21,8 @@ class RetryOrThrowExceptionCommandTest {
     void execute() {
         doThrow(new RuntimeException()).when(action).execute();
         ExceptionContext exceptionContext = ExceptionContext.builder().command(action).exception(exception).build();
-        RetryOrThrowExceptionCommand retryOrThrowExceptionCommand = new RetryOrThrowExceptionCommand(exceptionContext);
-        retryOrThrowExceptionCommand.execute();
+        RetryOrLoggingExceptionCommand retryOrLoggingExceptionCommand = new RetryOrLoggingExceptionCommand(exceptionContext);
+        retryOrLoggingExceptionCommand.execute();
         verify(action, times(2)).execute();
         verify(exception, times(1)).getMessage();
     }

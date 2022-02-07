@@ -1,7 +1,7 @@
 package com.otus.solid.first.war.of.tanks.actions.move;
 
 
-import com.otus.solid.first.war.of.tanks.actions.changers.MoveChanger;
+import com.otus.solid.first.war.of.tanks.actions.changers.MicroMoveChanger;
 import com.otus.solid.first.war.of.tanks.actions.state.borders.BorderState2D;
 import com.otus.solid.first.war.of.tanks.actions.state.checkers.LocationStateCheckerImpl;
 import com.otus.solid.first.war.of.tanks.actions.state.checkers.MovementStateChecker;
@@ -34,7 +34,7 @@ class MovementImplTest {
         MovementState2d state = new MovementState2d(List.of(), locationState2d, speedState);
 
         MovementImpl movement = new MovementImpl(state);
-        movement.setChanger(new MoveChanger());
+        movement.setChanger(new MicroMoveChanger());
         movement.execute();
         LocationState2d locationState = state.getLocationState2d();
         assertEquals(5L, locationState.getX(), "Значение X Не соответствует ожидаемому: 5");
@@ -51,7 +51,7 @@ class MovementImplTest {
         MovementStateChecker movementStateChecker = new MovementStateCheckerImpl(new BorderState2D(Collections.emptyList(), 40L, -40L, 70L, -70L));
         MovementState2d state = new MovementState2d(List.of(movementStateChecker), locationState2d, speedState);
         MovementImpl movement = new MovementImpl(state);
-        movement.setChanger(new MoveChanger());
+        movement.setChanger(new MicroMoveChanger());
         assertThrows(IncorrectDataException.class, movement::execute, "Ожидаемое поведение - ошибка IncorrectDataException");
     }
 
@@ -65,7 +65,7 @@ class MovementImplTest {
                 40L, -40L, 70L, -70L));
         MovementState2d state = new MovementState2d(List.of(movementStateChecker), locationState2d, speedState);
         MovementImpl movement = new MovementImpl(state);
-        movement.setChanger(new MoveChanger());
+        movement.setChanger(new MicroMoveChanger());
         assertThrows(IncorrectDataException.class, () -> movement.execute(), "Ожидаемое поведение - ошибка IncorrectDataException");
     }
 
@@ -80,7 +80,7 @@ class MovementImplTest {
                 4L, -4L, 7L, -7L));
         MovementState2d state = new MovementState2d(List.of(movementStateChecker), locationState2d, speedState);
         MovementImpl movement = new MovementImpl(state);
-        movement.setChanger(new MoveChanger());
+        movement.setChanger(new MicroMoveChanger());
         assertThrows(ImpossibleActionException.class, () -> movement.execute(), "Ожидаемое поведение - ошибка IncorrectDataException");
 
     }

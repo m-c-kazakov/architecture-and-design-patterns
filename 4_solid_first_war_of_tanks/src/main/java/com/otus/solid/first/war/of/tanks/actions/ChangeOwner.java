@@ -1,11 +1,9 @@
 package com.otus.solid.first.war.of.tanks.actions;
 
-import com.otus.solid.first.war.of.tanks.actions.changers.Changer;
-
 /**
  * Действие направленное на изменение состояния
  */
-public interface ChangeOwner<T extends Changer> {
+public interface ChangeOwner<T extends Command> {
 
     void setChanger(T changer);
 }
