@@ -22,12 +22,7 @@ class MacroMoveCommandTest {
     @Test
     void execute$Success() {
 
-        List<Command<MovementState2d>> chainOfCommand = new ArrayList<>();
-        chainOfCommand.add((Command) new FuelCheckerCommand());
-        chainOfCommand.add((new MicroMoveChanger()));
-        chainOfCommand.add((Command) (new FuelBurnChangerCommand()));
-
-        MacroMoveCommand macroMoveCommand = new MacroMoveCommand(chainOfCommand);
+        MacroMoveCommand macroMoveCommand = new MacroMoveCommand();
 
         LocationState2d locationState2d = LocationState2d.builder().checkers(Collections.emptyList()).x(12L).y(5L).build();
         SpeedState2D speedState = new SpeedState2D(Collections.emptyList(), -7L, 3L);
@@ -46,12 +41,7 @@ class MacroMoveCommandTest {
     @Test
     void execute$Exception() {
 
-        List<Command<MovementState2d>> chainOfCommand = new ArrayList<>();
-        chainOfCommand.add((Command) new FuelCheckerCommand());
-        chainOfCommand.add((new MicroMoveChanger()));
-        chainOfCommand.add((Command) (new FuelBurnChangerCommand()));
-
-        MacroMoveCommand macroMoveCommand = new MacroMoveCommand(chainOfCommand);
+        MacroMoveCommand macroMoveCommand = new MacroMoveCommand();
 
         LocationState2d locationState2d = LocationState2d.builder().checkers(Collections.emptyList()).x(12L).y(5L).build();
         SpeedState2D speedState = new SpeedState2D(Collections.emptyList(), -7L, 3L);
