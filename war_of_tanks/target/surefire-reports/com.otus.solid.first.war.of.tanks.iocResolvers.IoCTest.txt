@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.otus.solid.first.war.of.tanks.iocResolvers.IoCTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in com.otus.solid.first.war.of.tanks.iocResolvers.IoCTest

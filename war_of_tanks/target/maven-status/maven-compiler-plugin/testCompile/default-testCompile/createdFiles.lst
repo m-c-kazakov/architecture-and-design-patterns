@@ -1,0 +1,17 @@
+com/otus/solid/first/war/of/tanks/actorModel/MailBoxSoftStopperTest.class
+com/otus/solid/first/war/of/tanks/actorModel/MailBoxStarterTest.class
+com/otus/solid/first/war/of/tanks/actions/gameObjects/GameObjectImplTest.class
+com/otus/solid/first/war/of/tanks/actions/move/MovementImplTest.class
+com/otus/solid/first/war/of/tanks/exceptionHandling/excrptionHandlers/IncorrectDataExceptionHandlerTest.class
+com/otus/solid/first/war/of/tanks/actions/changers/FuelBurnChangerCommandTest.class
+com/otus/solid/first/war/of/tanks/actorModel/MailBoxHardStopperTest.class
+com/otus/solid/first/war/of/tanks/exceptionHandling/commands/RetryCommandTest.class
+com/otus/solid/first/war/of/tanks/exceptionHandling/commands/RetryOrLoggingExceptionCommandTest.class
+com/otus/solid/first/war/of/tanks/exceptionHandling/excrptionHandlers/IncorrectDataExceptionHandlerTest$1.class
+com/otus/solid/first/war/of/tanks/exceptionHandling/excrptionHandlers/ImpossibleActionExceptionHandlerTest$1.class
+com/otus/solid/first/war/of/tanks/exceptionHandling/excrptionHandlers/ImpossibleActionExceptionHandlerTest.class
+com/otus/solid/first/war/of/tanks/actions/changers/MacroMoveCommandTest.class
+com/otus/solid/first/war/of/tanks/exceptionHandling/excrptionHandlers/RetryAndLoggingHandlerTest.class
+com/otus/solid/first/war/of/tanks/iocResolvers/IoCTest.class
+com/otus/solid/first/war/of/tanks/actions/state/checkers/FuelCheckerCommandTest.class
+com/otus/solid/first/war/of/tanks/exceptionHandling/commands/ExceptionLoggingTest.class

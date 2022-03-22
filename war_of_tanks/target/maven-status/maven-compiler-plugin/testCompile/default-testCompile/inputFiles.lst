@@ -1,0 +1,15 @@
+/home/maxim/IdeaProjects/architecture-and-design-patterns/war_of_tanks/src/test/java/com/otus/solid/first/war/of/tanks/actions/move/MovementImplTest.java
+/home/maxim/IdeaProjects/architecture-and-design-patterns/war_of_tanks/src/test/java/com/otus/solid/first/war/of/tanks/exceptionHandling/commands/RetryCommandTest.java
+/home/maxim/IdeaProjects/architecture-and-design-patterns/war_of_tanks/src/test/java/com/otus/solid/first/war/of/tanks/exceptionHandling/excrptionHandlers/IncorrectDataExceptionHandlerTest.java
+/home/maxim/IdeaProjects/architecture-and-design-patterns/war_of_tanks/src/test/java/com/otus/solid/first/war/of/tanks/exceptionHandling/commands/ExceptionLoggingTest.java
+/home/maxim/IdeaProjects/architecture-and-design-patterns/war_of_tanks/src/test/java/com/otus/solid/first/war/of/tanks/actorModel/MailBoxHardStopperTest.java
+/home/maxim/IdeaProjects/architecture-and-design-patterns/war_of_tanks/src/test/java/com/otus/solid/first/war/of/tanks/actorModel/MailBoxStarterTest.java
+/home/maxim/IdeaProjects/architecture-and-design-patterns/war_of_tanks/src/test/java/com/otus/solid/first/war/of/tanks/actions/gameObjects/GameObjectImplTest.java
+/home/maxim/IdeaProjects/architecture-and-design-patterns/war_of_tanks/src/test/java/com/otus/solid/first/war/of/tanks/actions/changers/MacroMoveCommandTest.java
+/home/maxim/IdeaProjects/architecture-and-design-patterns/war_of_tanks/src/test/java/com/otus/solid/first/war/of/tanks/actions/changers/FuelBurnChangerCommandTest.java
+/home/maxim/IdeaProjects/architecture-and-design-patterns/war_of_tanks/src/test/java/com/otus/solid/first/war/of/tanks/actions/state/checkers/FuelCheckerCommandTest.java
+/home/maxim/IdeaProjects/architecture-and-design-patterns/war_of_tanks/src/test/java/com/otus/solid/first/war/of/tanks/iocResolvers/IoCTest.java
+/home/maxim/IdeaProjects/architecture-and-design-patterns/war_of_tanks/src/test/java/com/otus/solid/first/war/of/tanks/actorModel/MailBoxSoftStopperTest.java
+/home/maxim/IdeaProjects/architecture-and-design-patterns/war_of_tanks/src/test/java/com/otus/solid/first/war/of/tanks/exceptionHandling/excrptionHandlers/RetryAndLoggingHandlerTest.java
+/home/maxim/IdeaProjects/architecture-and-design-patterns/war_of_tanks/src/test/java/com/otus/solid/first/war/of/tanks/exceptionHandling/commands/RetryOrLoggingExceptionCommandTest.java
+/home/maxim/IdeaProjects/architecture-and-design-patterns/war_of_tanks/src/test/java/com/otus/solid/first/war/of/tanks/exceptionHandling/excrptionHandlers/ImpossibleActionExceptionHandlerTest.java
