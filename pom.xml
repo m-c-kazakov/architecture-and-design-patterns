@@ -23,7 +23,7 @@
 
     <modules>
         <module>unit-tests</module>
-        <module>4_solid_first_war_of_tanks</module>
+        <module>war_of_tanks</module>
     </modules>
 
 
