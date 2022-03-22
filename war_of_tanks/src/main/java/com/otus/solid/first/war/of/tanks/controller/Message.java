@@ -1,9 +1,9 @@
 package com.otus.solid.first.war.of.tanks.controller;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
+import lombok.extern.jackson.Jacksonized;
 
 import java.util.Map;
 
@@ -17,6 +17,8 @@ import java.util.Map;
  */
 
 @Getter
+@Builder
+@Jacksonized
 @RequiredArgsConstructor
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class Message {
@@ -26,7 +28,7 @@ public class Message {
     Map<String, Object> varargs;
 
 
-    public Map<String, Object> getVarargsForIoC() {
+    public Map<String, Object> createVarargsForIoC() {
         varargs.put("dependencyName", operationId);
         varargs.put("scopeId", scopeId);
         varargs.put("gameObjectId", gameObjectId);

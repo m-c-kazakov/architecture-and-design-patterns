@@ -24,7 +24,7 @@ public class InterpretCommand implements Action {
     @Override
     public void execute() {
 
-        Action action = IoC.resolve(message.getVarargsForIoC());
+        Action action = IoC.resolve(message.createVarargsForIoC());
         MailBoxAdder mailBoxAdder = IoC.resolve(
                 Map.of("dependencyName", "MailBoxAdder",
                         "action", action,
