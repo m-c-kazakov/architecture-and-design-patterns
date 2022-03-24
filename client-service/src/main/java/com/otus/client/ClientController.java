@@ -2,8 +2,6 @@ package com.otus.client;
 
 import com.otus.authorization.dto.UserDataDto;
 import com.otus.solid.first.war.of.tanks.controller.GameUser;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,9 +30,5 @@ public class ClientController {
         log.info("<< registerAndSend");
     }
 
-    @Data
-    @NoArgsConstructor
-    private static class ClientDto {
-        Set<String> membersId;
-    }
+
 }
