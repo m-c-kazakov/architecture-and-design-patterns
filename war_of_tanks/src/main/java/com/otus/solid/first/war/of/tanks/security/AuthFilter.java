@@ -32,7 +32,7 @@ public class AuthFilter extends OncePerRequestFilter {
 	@Override
 	protected boolean shouldNotFilter(HttpServletRequest request) {
 		var header = request.getHeader(TOKEN);
-		return Objects.nonNull(header);
+		return Objects.isNull(header);
 	}
 
 	@Override

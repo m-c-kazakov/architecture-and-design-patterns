@@ -15,8 +15,6 @@ import java.util.Set;
 public class TankBattleController implements TankBattle {
 
     BattleService battleService;
-    JwtCreator jwtCreator;
-
 
     @Override
     public String receiveMembers(Set<String> membersId) {
@@ -26,6 +24,6 @@ public class TankBattleController implements TankBattle {
 
     @Override
     public String getJwtByUserIdAndBattleId(UserDataDto userDataDto) {
-        return null;
+        return battleService.getJws(userDataDto);
     }
 }
