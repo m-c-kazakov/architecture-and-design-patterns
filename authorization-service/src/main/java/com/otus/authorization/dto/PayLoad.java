@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.experimental.FieldDefaults;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 @Getter
@@ -18,7 +19,8 @@ public class PayLoad {
     Map<String, Object> optionalParams;
 
     public Map<String, Object> getPayload() {
-        optionalParams.put("userId", userId);
-        return optionalParams;
+        Map<String, Object> map = new HashMap<>(optionalParams);
+        map.put("userId", userId);
+        return map;
     }
 }
