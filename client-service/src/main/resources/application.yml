@@ -1,0 +1,17 @@
+server:
+  port: 8083
+
+
+logging:
+  level:
+    org:
+      springframework:
+        web: TRACE
+
+application:
+  auth:
+    url: "http://localhost:8081"
+  warOfTanks:
+    url:
+
+

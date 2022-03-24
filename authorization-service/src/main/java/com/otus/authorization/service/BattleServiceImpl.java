@@ -38,11 +38,14 @@ public class BattleServiceImpl implements BattleService {
     @Override
     public String getJws(UserDataDto userDataDto) {
         return ofNullable(battleRepository.getBattleIdByUserId(userDataDto.getUserId()))
-                .filter(combatant -> combatant.getBattleId().equals(userDataDto.getBattleId()))
                 .map(combatant -> PayLoad.builder()
                         .userId(combatant.getMemberId())
                         .expiration(Date.from(Instant.now().plusSeconds(jwtLifeTime)))
-                        .optionalParams(Map.of("battleId", combatant.getBattleId()))
+                        .optionalParams(Map.of(
+                                "isCan", combatant.getBattleId().equals(userDataDto.getBattleId()),
+                                "userId", userDataDto.getUserId(),
+                                "battleId", userDataDto.getBattleId()
+                        ))
                         .build())
                 .map(jwtCreator::execute)
                 .orElseThrow(AuthError::new);
