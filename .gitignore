@@ -1,4 +1,5 @@
 # Project exclude paths
 .idea/
 *.iml
-/3_unit-tests/target/
+/unit-tests/target/
+/war_of_tanks/target/
