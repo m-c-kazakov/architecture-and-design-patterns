@@ -1,8 +1,11 @@
 package com.otus.solid.first.war.of.tanks.actorModel;
 
 import com.otus.solid.first.war.of.tanks.actions.Action;
+import com.otus.solid.first.war.of.tanks.iocResolvers.IoC;
+import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Map;
@@ -10,11 +13,11 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 @Slf4j
+@RequiredArgsConstructor
+@FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class MailBoxExecutor implements Action {
-    // todo task Добавить реализацию после проверки задачи на IoC
-    @Setter
-    private IoC ioC;
 
+    String scopeId;
 
     /**
      * В цикле получает из потокобезопасной очереди команду  запускает ее.
@@ -25,13 +28,13 @@ public class MailBoxExecutor implements Action {
      */
     @Override
     public void execute() {
-        final ConcurrentLinkedQueue<Action> actionQueue = ioC.resolve(Map.of("dependencyName", "MailBox"));
-        while (((AtomicBoolean) ioC.resolve(Map.of("dependencyName", "MailBoxIsWorking"))).get()) {
+        final ConcurrentLinkedQueue<Action> actionQueue = IoC.resolve(Map.of("dependencyName", "MailBox", "scopeId", scopeId));
+        while (((AtomicBoolean) IoC.resolve(Map.of("dependencyName", "MailBoxIsWorking", "scopeId", scopeId))).get()) {
             try {
                 if (actionQueue.size() != 0) {
                     actionQueue.poll().execute();
                 } else {
-                    Action action = ioC.resolve(Map.of("dependencyName", "AbsenceOfElementAction"));
+                    Action action = IoC.resolve(Map.of("dependencyName", "MailBoxSoftStopper", "scopeId", scopeId));
                     action.execute();
                 }
             } catch (Exception exception) {
