@@ -4,7 +4,7 @@ import lombok.Getter;
 
 @Getter
 public class CommandException extends RuntimeException{
-    private String commandName;
+    private final String commandName;
 
     public CommandException(Throwable cause, String commandName, String errorMessage) {
         super(errorMessage, cause);
