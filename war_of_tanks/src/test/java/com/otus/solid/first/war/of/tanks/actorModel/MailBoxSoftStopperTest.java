@@ -1,6 +1,7 @@
 package com.otus.solid.first.war.of.tanks.actorModel;
 
 import com.otus.solid.first.war.of.tanks.actions.Action;
+import com.otus.solid.first.war.of.tanks.actorModel.state.MailBoxState;
 import com.otus.solid.first.war.of.tanks.iocResolvers.IoC;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.BeforeEach;
@@ -47,7 +48,7 @@ class MailBoxSoftStopperTest {
         Function<Map<String, Object>, ConcurrentLinkedQueue<Action>> initFuncConcurrentLinkedQueue = (map) -> new ConcurrentLinkedQueue();
         IoC.resolve(Map.of("dependencyName", "MailBox", "initFunc", initFuncConcurrentLinkedQueue, "isSingleton", true, "scopeId", "MailBoxSoftStopperTest"));
 
-        Function<Map<String, Object>, MailBoxExecutor> initFuncMailBoxExecutor = (map) -> new MailBoxExecutor((String) map.get("scopeId"));
+        Function<Map<String, Object>, MailBoxExecutor> initFuncMailBoxExecutor = (map) -> new MailBoxExecutor((String) map.get("scopeId"), new MailBoxState((String) map.get("scopeId")));
         IoC.resolve(Map.of("dependencyName", "MailBoxExecutor", "initFunc", initFuncMailBoxExecutor, "scopeId", "MailBoxSoftStopperTest"));
 
         Function<Map<String, Object>, MailBoxHardStopper> initFuncMailBoxHardStopper = (map) -> new MailBoxHardStopper((String) map.get("scopeId"));
