@@ -3,3 +3,6 @@
 *.iml
 /unit-tests/target/
 /war_of_tanks/target/
+/client-service/target/
+/authorization-service/target/
+/keys/target/
