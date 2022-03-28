@@ -7,6 +7,7 @@ import com.otus.solid.first.war.of.tanks.actorModel.MailBoxHardStopper;
 import com.otus.solid.first.war.of.tanks.exceptionHandling.exceptions.AnImpossibleActionException;
 import com.otus.solid.first.war.of.tanks.iocResolvers.IoC;
 import lombok.AccessLevel;
+import lombok.Getter;
 import lombok.experimental.FieldDefaults;
 
 import java.util.Map;
@@ -15,6 +16,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 
 import static java.util.Optional.ofNullable;
 
+@Getter
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class MailBoxState implements MailBoxExecutorState {
 
@@ -82,14 +84,14 @@ public class MailBoxState implements MailBoxExecutorState {
             ofNullable(actionQueue.poll()).ifPresentOrElse(action -> {
                 if (action instanceof MailBoxHardStopper) {
                     // Обработка команды HardStop приводит к тому, что будет возвращена "нулевая ссылка" на следующее состояние, что соответствует завершению работы потока.
-                    action.execute();
                     state = null;
+                    action.execute();
                 } else if (action instanceof RunCommand) {
                     // Обработка команды RunCommand приводит к тому, что будет возвращена ссылка на "обычное" состояние.
-                    action.execute();
                     state = new DefaultState();
+                    action.execute();
                 } else {
-                    // По умолчанию возвращается ссылка на этот же экземпляр состояния.
+                    // состояние, в котором команды извлекаются из очереди и перенаправляются в другую очередь.
                     Action mailBoxRedirector = IoC.resolve(Map.of("dependencyName", "MailBoxRedirector", "redirect", action));
                     mailBoxRedirector.execute();
                 }
