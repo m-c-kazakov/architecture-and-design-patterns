@@ -1,4 +1,4 @@
-// AUTOMATICALLY GENERATED at Tue Mar 29 18:23:18 MSK 2022
+// AUTOMATICALLY GENERATED at Tue Mar 29 18:27:42 MSK 2022
 package com.otus.solid.first.war.of.tanks.classGenerator.generated;
 
 import com.otus.solid.first.war.of.tanks.actions.Action;
@@ -20,15 +20,15 @@ public class TankOperationsIMovableAdapter implements TankOperationsIMovable {
         action.execute();
     }
 
-    public Vector getPosition() {
-        return IoC.resolve(Map.of("dependencyName", "TankOperationsIMovable::getPosition", "uObject", uObject));
-    }
-
     public Vector setPosition(Vector arg0) {
         return IoC.resolve(Map.of("dependencyName", "TankOperationsIMovable::setPosition", "uObject", uObject, "arg0", arg0));
     }
 
     public Vector getVelocity() {
         return IoC.resolve(Map.of("dependencyName", "TankOperationsIMovable::getVelocity", "uObject", uObject));
+    }
+
+    public Vector getPosition() {
+        return IoC.resolve(Map.of("dependencyName", "TankOperationsIMovable::getPosition", "uObject", uObject));
     }
 }

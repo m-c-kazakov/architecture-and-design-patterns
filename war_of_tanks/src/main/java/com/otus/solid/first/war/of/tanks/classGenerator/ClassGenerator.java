@@ -69,30 +69,7 @@ public class ClassGenerator {
     }
 
     private static Iterable<MethodSpec> generateMethodsSpec(String simpleName, Method[] methods, String fieldName) {
-        return Arrays.stream(methods).map(method -> {
-
-            if (method.getName().contains("get")) {
-//                return generateGetter(simpleName, method, fieldName);
-                return test(simpleName, method, fieldName);
-            } else if (method.getName().contains("set")) {
-//                return generateSetter(simpleName, method, fieldName);
-                return test(simpleName, method, fieldName);
-            } else {
-                return test(simpleName, method, fieldName);
-//                throw new IllegalArgumentException("Получен метод с неизвестным");
-            }
-        }).collect(Collectors.toList());
-    }
-
-    private static MethodSpec generateSetter(String simpleName, Method method, String fieldName) {
-        return MethodSpec.methodBuilder(method.getName())
-                .addModifiers(Modifier.PUBLIC)
-                .returns(method.getReturnType())
-                .addParameters(() -> Arrays.stream(method.getParameters())
-                        .map(parameter -> ParameterSpec.builder(parameter.getType(), "newValue")
-                                .build()).iterator())
-                .addStatement("return $T.resolve($T.of(\"dependencyName\", \"$N::$N\", \"$N\", $N, \"newValue\", newValue))", IoC.class, Map.class, simpleName, method.getName(), fieldName, fieldName)
-                .build();
+        return Arrays.stream(methods).map(method -> test(simpleName, method, fieldName)).collect(Collectors.toList());
     }
 
     private static MethodSpec test(String simpleName, Method method, String fieldName) {
@@ -110,7 +87,6 @@ public class ClassGenerator {
         }
 
         StringBuilder stringBuilder = new StringBuilder()
-//                .append("return IoC.resolve(Map.of(\"dependencyName\", \"")
                 .append(simpleName)
                 .append("::")
                 .append(method.getName())
@@ -139,19 +115,7 @@ public class ClassGenerator {
 
         }
 
-        return builder
-                .build();
-    }
-
-    private static MethodSpec generateGetter(String simpleName, Method method, String fieldName) {
-        return MethodSpec.methodBuilder(method.getName())
-                .addModifiers(Modifier.PUBLIC)
-                .returns(method.getReturnType())
-                .addParameters(() -> Arrays.stream(method.getParameters())
-                        .map(parameter -> ParameterSpec.builder(parameter.getType(), "newValue")
-                                .build()).iterator())
-                .addStatement("return IoC.resolve(Map.of(\"dependencyName\", \"$N::$N\", \"$N\", $N))", simpleName, method.getName(), fieldName, fieldName)
-                .build();
+        return builder.build();
     }
 
     public static List<? extends Class<?>> getClassByPath(String pathForClassesToGenerate) {
