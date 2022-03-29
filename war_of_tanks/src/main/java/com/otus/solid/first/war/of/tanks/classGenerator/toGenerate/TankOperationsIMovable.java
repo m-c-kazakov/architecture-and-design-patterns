@@ -6,4 +6,5 @@ public interface TankOperationsIMovable {
     Vector getPosition();
     Vector setPosition(Vector newValue);
     Vector getVelocity();
+    void finish();
 }
