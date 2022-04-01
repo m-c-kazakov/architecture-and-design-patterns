@@ -13,7 +13,6 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.function.Function;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.timeout;
 import static org.mockito.Mockito.verify;
 

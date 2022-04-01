@@ -1,10 +1,10 @@
 package com.otus.solid.first.war.of.tanks.actorModel;
 
 import com.otus.solid.first.war.of.tanks.actions.Action;
+import com.otus.solid.first.war.of.tanks.actorModel.state.MailBoxState;
 import com.otus.solid.first.war.of.tanks.iocResolvers.IoC;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 
@@ -18,6 +18,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class MailBoxExecutor implements Action {
 
     String scopeId;
+    MailBoxState mailBoxState;
 
     /**
      * В цикле получает из потокобезопасной очереди команду  запускает ее.
@@ -28,15 +29,9 @@ public class MailBoxExecutor implements Action {
      */
     @Override
     public void execute() {
-        final ConcurrentLinkedQueue<Action> actionQueue = IoC.resolve(Map.of("dependencyName", "MailBox", "scopeId", scopeId));
         while (((AtomicBoolean) IoC.resolve(Map.of("dependencyName", "MailBoxIsWorking", "scopeId", scopeId))).get()) {
             try {
-                if (actionQueue.size() != 0) {
-                    actionQueue.poll().execute();
-                } else {
-                    Action action = IoC.resolve(Map.of("dependencyName", "MailBoxSoftStopper", "scopeId", scopeId));
-                    action.execute();
-                }
+                mailBoxState.handle();
             } catch (Exception exception) {
                 log.error("Ошибка при выполнении команды.", exception);
             }
