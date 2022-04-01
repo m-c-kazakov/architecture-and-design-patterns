@@ -24,6 +24,9 @@
     <modules>
         <module>unit-tests</module>
         <module>war_of_tanks</module>
+        <module>authorization-service</module>
+        <module>keys</module>
+        <module>client-service</module>
     </modules>
 
 

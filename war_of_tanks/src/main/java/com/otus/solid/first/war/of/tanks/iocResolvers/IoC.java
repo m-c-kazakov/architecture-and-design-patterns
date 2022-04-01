@@ -4,11 +4,9 @@ import com.otus.solid.first.war.of.tanks.exceptionHandling.exceptions.ResolveExc
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ObjectUtils;
-import org.springframework.util.Assert;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 import java.util.function.Function;
 
 import static java.util.Objects.isNull;
