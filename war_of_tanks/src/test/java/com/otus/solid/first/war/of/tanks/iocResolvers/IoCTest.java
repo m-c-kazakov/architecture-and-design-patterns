@@ -52,7 +52,7 @@ class IoCTest {
         });
 
         Thread thread2 = new Thread(() -> {
-            assertThrows(ResolveException.class, () -> IoC.resolve(Map.of("dependencyName", "FuelCheckerCommand", "scopeId", "1")), "Не получено ожидаемое исключение");
+            assertThrows(ResolveException.class, () -> IoC.resolve(Map.of("dependencyName", "FuelCheckerCommand", "scopeId", "2")), "Не получено ожидаемое исключение");
         });
 
 
